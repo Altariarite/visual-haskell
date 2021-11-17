@@ -11,7 +11,7 @@ var matrix = [
 const table = d3.select("body").append("table")
 
 let m;
-d3.json('out.json', function (err, data) {
+d3.json('out.json').then((data) => {
     console.log(data)
     m = data
     td = update(data)
@@ -24,22 +24,31 @@ function update(data) {
     var tr = table.selectAll("tr")
         .data(data)
 
+    var row_index = d3.local();
     // enter + update rows
     var row = tr.enter().append("tr")
         .merge(tr)
-    var row_idx = d3.local();
-    var td = row.selectAll("td")
-        .data(function (d, i) {
-            row_idx.set(this, i)
-            return d;
+        .each(function (d, i) {
+            row_index.set(this, i);            // Store index in local variable.
         })
 
+    var td = row.selectAll("td")
+        .data(d => d)
+
+    var col_index = d3.local();
     //enter + update cells
     td.enter().append("td")
-        .on("click", function (d, i) {
-            console.log(row_idx.get(this), i)
+        .each(function (d, i) {
+            col_index.set(this, i);            // Store index in local variable.
+        })
+
+        .on("click", function (e, d) {
+            console.log(data)
+            let [i, j] = [row_index.get(this), col_index.get(this)]
+            console.log(i, j)
             let value = Number(prompt())
-            data[row_idx.get(this)][i] = value
+
+            data[i][j] = value
             update(data)
         })
         .merge(td)
