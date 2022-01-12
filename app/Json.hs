@@ -4,45 +4,26 @@
 module Json where
 
 import Data.Aeson
-  ( FromJSON,
+  ( FromJSON (parseJSON),
     KeyValue ((.=)),
     ToJSON (toJSON),
     decode,
     object,
+    withObject,
+    eitherDecode
   )
 import Data.Aeson.Text (encodeToLazyText)
 import Data.Aeson.Types (ToJSON)
 import qualified Data.ByteString.Lazy as B
 import Data.Text (Text)
 import qualified Data.Text.Lazy.IO as I
+import Data.Tree
 import GHC.Generics (Generic)
 import Web.Scotty
 
-data Person = Person
-  { firstName :: !Text,
-    lastName :: !Text,
-    age :: Int,
-    likesPizza :: Bool
-  }
-  deriving (Show, Generic)
-
-p1 = Person "John" "Doe" 18 True :: Person
-
-instance ToJSON Person
-
-instance FromJSON Person
-
-data Tree a = Nil | Node a (Tree a) (Tree a) deriving (Show, Generic)
-
-instance ToJSON a => ToJSON (Tree a) where
-  toJSON Nil = object []
-  toJSON (Node val l r) =
-    object
-      [ "name" .= val,
-        "children" .= [toJSON l, toJSON r]
-      ]
-
-t = Node 1 (Node 2 Nil Nil) (Node 3 Nil Nil) :: Tree Int
+t = unfoldTree buildNode 1
+  where
+    buildNode x = if 2 * x + 1 > 7 then (x, []) else (x, [2 * x, 2 * x + 1])
 
 m =
   [ [1, 5871, 8916, 2868],
@@ -58,10 +39,8 @@ writeJson m = do
 
 readJson = do
   input <- B.readFile "out.json"
-  let mm = decode input :: Maybe [[Integer]]
-  case mm of
-    Nothing -> print "error parsing Json"
-    Just m -> print m
+  let mm = eitherDecode input :: Either String (Tree Integer)
+  print mm
 
 data User = User {userId :: Int, userName :: String} deriving (Show, Generic)
 

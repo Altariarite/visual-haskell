@@ -10,15 +10,15 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 #endif /* MIN_VERSION_Prototype */
-/* package aeson-1.5.6.0 */
+/* package aeson-2.0.2.0 */
 #ifndef VERSION_aeson
-#define VERSION_aeson "1.5.6.0"
+#define VERSION_aeson "2.0.2.0"
 #endif /* VERSION_aeson */
 #ifndef MIN_VERSION_aeson
 #define MIN_VERSION_aeson(major1,major2,minor) (\
-  (major1) <  1 || \
-  (major1) == 1 && (major2) <  5 || \
-  (major1) == 1 && (major2) == 5 && (minor) <= 6)
+  (major1) <  2 || \
+  (major1) == 2 && (major2) <  0 || \
+  (major1) == 2 && (major2) == 0 && (minor) <= 2)
 #endif /* MIN_VERSION_aeson */
 /* package base-4.14.3.0 */
 #ifndef VERSION_base
@@ -90,6 +90,16 @@
   (major1) == 2 && (major2) <  2 || \
   (major1) == 2 && (major2) == 2 && (minor) <= 2)
 #endif /* MIN_VERSION_mtl */
+/* package network-3.1.2.5 */
+#ifndef VERSION_network
+#define VERSION_network "3.1.2.5"
+#endif /* VERSION_network */
+#ifndef MIN_VERSION_network
+#define MIN_VERSION_network(major1,major2,minor) (\
+  (major1) <  3 || \
+  (major1) == 3 && (major2) <  1 || \
+  (major1) == 3 && (major2) == 1 && (minor) <= 2)
+#endif /* MIN_VERSION_network */
 /* package scotty-0.12 */
 #ifndef VERSION_scotty
 #define VERSION_scotty "0.12"
@@ -120,6 +130,56 @@
   (major1) == 1 && (major2) <  2 || \
   (major1) == 1 && (major2) == 2 && (minor) <= 4)
 #endif /* MIN_VERSION_text */
+/* package wai-3.2.3 */
+#ifndef VERSION_wai
+#define VERSION_wai "3.2.3"
+#endif /* VERSION_wai */
+#ifndef MIN_VERSION_wai
+#define MIN_VERSION_wai(major1,major2,minor) (\
+  (major1) <  3 || \
+  (major1) == 3 && (major2) <  2 || \
+  (major1) == 3 && (major2) == 2 && (minor) <= 3)
+#endif /* MIN_VERSION_wai */
+/* package wai-app-static-3.1.7.2 */
+#ifndef VERSION_wai_app_static
+#define VERSION_wai_app_static "3.1.7.2"
+#endif /* VERSION_wai_app_static */
+#ifndef MIN_VERSION_wai_app_static
+#define MIN_VERSION_wai_app_static(major1,major2,minor) (\
+  (major1) <  3 || \
+  (major1) == 3 && (major2) <  1 || \
+  (major1) == 3 && (major2) == 1 && (minor) <= 7)
+#endif /* MIN_VERSION_wai_app_static */
+/* package wai-websockets-3.0.1.2 */
+#ifndef VERSION_wai_websockets
+#define VERSION_wai_websockets "3.0.1.2"
+#endif /* VERSION_wai_websockets */
+#ifndef MIN_VERSION_wai_websockets
+#define MIN_VERSION_wai_websockets(major1,major2,minor) (\
+  (major1) <  3 || \
+  (major1) == 3 && (major2) <  0 || \
+  (major1) == 3 && (major2) == 0 && (minor) <= 1)
+#endif /* MIN_VERSION_wai_websockets */
+/* package warp-3.3.18 */
+#ifndef VERSION_warp
+#define VERSION_warp "3.3.18"
+#endif /* VERSION_warp */
+#ifndef MIN_VERSION_warp
+#define MIN_VERSION_warp(major1,major2,minor) (\
+  (major1) <  3 || \
+  (major1) == 3 && (major2) <  3 || \
+  (major1) == 3 && (major2) == 3 && (minor) <= 18)
+#endif /* MIN_VERSION_warp */
+/* package websockets-0.12.7.3 */
+#ifndef VERSION_websockets
+#define VERSION_websockets "0.12.7.3"
+#endif /* VERSION_websockets */
+#ifndef MIN_VERSION_websockets
+#define MIN_VERSION_websockets(major1,major2,minor) (\
+  (major1) <  0 || \
+  (major1) == 0 && (major2) <  12 || \
+  (major1) == 0 && (major2) == 12 && (minor) <= 7)
+#endif /* MIN_VERSION_websockets */
 
 /* tool gcc-12.0.0 */
 #ifndef TOOL_VERSION_gcc

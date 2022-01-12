@@ -8,18 +8,18 @@ var matrix = [
 
 
 
-const table = d3.select("body").append("table")
+
 
 let m;
 d3.json('out.json').then((data) => {
     console.log(data)
     m = data
-    td = update(data)
+    td = updateTable(data)
 
 })
 
-function update(data) {
-
+export function updateTable(data) {
+    const table = d3.select("body").append("table")
     // Join
     var tr = table.selectAll("tr")
         .data(data)
@@ -49,7 +49,7 @@ function update(data) {
             let value = Number(prompt())
 
             data[i][j] = value
-            update(data)
+            updateTable(data)
         })
         .merge(td)
         .text(function (d) {
