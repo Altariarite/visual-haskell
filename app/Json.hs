@@ -20,13 +20,12 @@ import Data.Text (Text)
 import qualified Data.Text.Lazy.IO as I
 import Data.Tree
 import GHC.Generics (Generic)
-import Web.Scotty
 
 t = unfoldTree buildNode 1
   where
     buildNode x = if 2 * x + 1 > 7 then (x, []) else (x, [2 * x, 2 * x + 1])
 
-myTree = (Node {rootLabel = 3, subForest = [Node {rootLabel = 2, subForest = [Node {rootLabel = 4, subForest = []}, Node {rootLabel = 5, subForest = []}]}, Node {rootLabel = 3, subForest = [Node {rootLabel = 6, subForest = []}, Node {rootLabel = 7, subForest = []}]}]})
+myTree = (Node {rootLabel = 5, subForest = [Node {rootLabel = 2, subForest = [Node {rootLabel = 4, subForest = []},Node {rootLabel = 10, subForest = []}]},Node {rootLabel = 3, subForest = [Node {rootLabel = 6, subForest = []},Node {rootLabel = 7, subForest = []}]}]})
 
 {- 
 >>> take 1 m
