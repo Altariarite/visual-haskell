@@ -10,15 +10,15 @@
   (major1) == 0 && (major2) <  1 || \
   (major1) == 0 && (major2) == 1 && (minor) <= 0)
 #endif /* MIN_VERSION_Prototype */
-/* package aeson-2.0.2.0 */
+/* package aeson-2.0.3.0 */
 #ifndef VERSION_aeson
-#define VERSION_aeson "2.0.2.0"
+#define VERSION_aeson "2.0.3.0"
 #endif /* VERSION_aeson */
 #ifndef MIN_VERSION_aeson
 #define MIN_VERSION_aeson(major1,major2,minor) (\
   (major1) <  2 || \
   (major1) == 2 && (major2) <  0 || \
-  (major1) == 2 && (major2) == 0 && (minor) <= 2)
+  (major1) == 2 && (major2) == 0 && (minor) <= 3)
 #endif /* MIN_VERSION_aeson */
 /* package base-4.14.3.0 */
 #ifndef VERSION_base
@@ -90,9 +90,9 @@
   (major1) == 2 && (major2) <  2 || \
   (major1) == 2 && (major2) == 2 && (minor) <= 2)
 #endif /* MIN_VERSION_mtl */
-/* package network-3.1.2.5 */
+/* package network-3.1.2.7 */
 #ifndef VERSION_network
-#define VERSION_network "3.1.2.5"
+#define VERSION_network "3.1.2.7"
 #endif /* VERSION_network */
 #ifndef MIN_VERSION_network
 #define MIN_VERSION_network(major1,major2,minor) (\
