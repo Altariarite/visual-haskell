@@ -1,35 +1,52 @@
-<html>
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style type="text/css">
+  .node {
+    cursor: pointer;
+  }
 
-<head>
-  <title>Chart</title>
-  <script charset='utf-8' src=https://d3js.org/d3.v6.min.js></script>
-  <script src="FileSaver.js"></script>
-  <style>
-    .node:hover {
-      fill: blue
-    }
+  .overlay {
+    background-color: #EEE;
+  }
 
-    table,
-    th,
-    td {
-      border: 1px solid black;
-      border-collapse: collapse;
-    }
+  .node circle {
+    fill: #fff;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
 
-    td:hover {
-      background-color: #05f3fe;
-      cursor: pointer;
-    }
-  </style>
-</head>
+  .node text {
+    font-size: 10px;
+    font-family: sans-serif;
+  }
+
+  .link {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 1.5px;
+  }
+
+  .templink {
+    fill: none;
+    stroke: red;
+    stroke-width: 3px;
+  }
+
+  .ghostCircle.show {
+    display: block;
+  }
+
+  .ghostCircle,
+  .activeDrag .ghostCircle {
+    display: none;
+  }
+</style>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="dndTree.js"></script>
 
 <body>
-
-  <button type="button" onclick="saveDynamicDataToFile();">Click to Save</button>
-
-
+  <div id="tree-container"></div>
 </body>
-
-<script charset='utf-8' src='vis.js'></script>
 
 </html>
